@@ -19,7 +19,7 @@ Open `http://localhost:3000`
 ```
   http://localhost:3000/properties
   http://localhost:3000/markets
-  http://localhost:3000/countrys
+  http://localhost:3000/countries
 ```
 
 # Refs

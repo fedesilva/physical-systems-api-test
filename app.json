@@ -1,0 +1,7 @@
+
+{
+  "name": "API Server Test",
+  "description": "Basic Api",
+  "repository": "https://github.com/WeConnect/physical-systems-api-test",
+  "keywords": ["node"]
+}

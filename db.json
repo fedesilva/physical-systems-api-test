@@ -135,7 +135,7 @@
       "market": 21
     }
   ],
-  "countrys": [
+  "countries": [
     [
       
       {
@@ -227,5 +227,8 @@
         "numCode": "862"
       }
     ]
-  ]
+  ],
+  "profile": {
+    "name": "typicode"
+  }
 }

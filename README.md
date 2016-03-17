@@ -22,6 +22,9 @@ Open `http://localhost:3000`
   http://localhost:3000/countries
 ```
 
-# Refs
+Alternatively, you can deploy your own copy of the app using this button:
 
+[![Deploy to Heroku](https://www.herokucdn.com/deploy/button.png)](https://heroku.com/deploy)
+
+# Refs
  * Check json-server: https://github.com/typicode/json-server

@@ -56,3 +56,5 @@ So that I can easily find a property by its name and market.
 
   - clone and install: https://github.com/WeConnect/physical-systems-api-test
   - Api handling and documentation (how to interact with the api): https://github.com/typicode/json-server
+  - Entity Relations:
+  ![MER](diagram.png)

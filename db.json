@@ -3,8 +3,8 @@
     {
       "id": 1,
       "name": "135 Lexington",
-      "desks": "120",
-      "Sf": "593",
+      "desks": 120,
+      "Sf": 593,
       "address1": "135 Lexington Ave, New York, 10016",
       "address2": null,
       "city": "Manhattan",
@@ -21,8 +21,8 @@
     {
       "id": 2,
       "name": "8 62nd",
-      "desks": "8231",
-      "Sf": "3415",
+      "desks": 8231,
+      "Sf": 3415,
       "address1": "8 E 62nd St, New  York, 10065",
       "address2": null,
       "city": "Manhattan",
@@ -39,8 +39,8 @@
     {
       "id": 3,
       "name": "195 Broadway",
-      "desks": "342",
-      "Sf": "1230400",
+      "desks": 342,
+      "Sf": 1230400,
       "address1": "195 Broadway, New York,  10007",
       "address2": null,
       "city": "Manhattan",
@@ -56,7 +56,6 @@
     }
   ],
   "markets": [
-   
     {
       "id": 20,
       "name": "Downtown",
@@ -87,7 +86,6 @@
       "name": "Israel",
       "market": 37
     },
-  
     {
       "id": 27,
       "name": "LA",
@@ -103,7 +101,6 @@
       "name": "Lincoln Park",
       "market": 11
     },
-    
     {
       "id": 30,
       "name": "Lomas - Virreyes",
@@ -136,97 +133,94 @@
     }
   ],
   "countries": [
-    [
-      
-      {
-        "id": 689,
-        "iso2": "UG",
-        "shortName": "Uganda",
-        "longName": "Republic of Uganda",
-        "iso3": "UGA",
-        "numCode": "800"
-      },
-      {
-        "id": 690,
-        "iso2": "UA",
-        "shortName": "Ukraine",
-        "longName": "Ukraine",
-        "iso3": "UKR",
-        "numCode": "804"
-      },
-      {
-        "id": 691,
-        "iso2": "AE",
-        "shortName": "United Arab Emirates",
-        "longName": "United Arab Emirates",
-        "iso3": "ARE",
-        "numCode": "784"
-      },
-      {
-        "id": 692,
-        "iso2": "GB",
-        "shortName": "United Kingdom",
-        "longName": "United Kingdom of Great Britain and Nothern Ireland",
-        "iso3": "GBR",
-        "numCode": "826"
-      },
-      {
-        "id": 693,
-        "iso2": "US",
-        "shortName": "United States",
-        "longName": "United States of America",
-        "iso3": "USA",
-        "numCode": "840"
-      },
-      {
-        "id": 694,
-        "iso2": "UM",
-        "shortName": "United States Minor Outlying Islands",
-        "longName": "United States Minor Outlying Islands",
-        "iso3": "UMI",
-        "numCode": "581"
-      },
-      {
-        "id": 695,
-        "iso2": "UY",
-        "shortName": "Uruguay",
-        "longName": "Eastern Republic of Uruguay",
-        "iso3": "URY",
-        "numCode": "858"
-      },
-      {
-        "id": 696,
-        "iso2": "UZ",
-        "shortName": "Uzbekistan",
-        "longName": "Republic of Uzbekistan",
-        "iso3": "UZB",
-        "numCode": "860"
-      },
-      {
-        "id": 697,
-        "iso2": "VU",
-        "shortName": "Vanuatu",
-        "longName": "Republic of Vanuatu",
-        "iso3": "VUT",
-        "numCode": "548"
-      },
-      {
-        "id": 698,
-        "iso2": "VA",
-        "shortName": "Vatican City",
-        "longName": "State of the Vatican City",
-        "iso3": "VAT",
-        "numCode": "336"
-      },
-      {
-        "id": 699,
-        "iso2": "VE",
-        "shortName": "Venezuela",
-        "longName": "Bolivarian Republic of Venezuela",
-        "iso3": "VEN",
-        "numCode": "862"
-      }
-    ]
+    {
+      "id": 689,
+      "iso2": "UG",
+      "shortName": "Uganda",
+      "longName": "Republic of Uganda",
+      "iso3": "UGA",
+      "numCode": "800"
+    },
+    {
+      "id": 690,
+      "iso2": "UA",
+      "shortName": "Ukraine",
+      "longName": "Ukraine",
+      "iso3": "UKR",
+      "numCode": "804"
+    },
+    {
+      "id": 691,
+      "iso2": "AE",
+      "shortName": "United Arab Emirates",
+      "longName": "United Arab Emirates",
+      "iso3": "ARE",
+      "numCode": "784"
+    },
+    {
+      "id": 692,
+      "iso2": "GB",
+      "shortName": "United Kingdom",
+      "longName": "United Kingdom of Great Britain and Nothern Ireland",
+      "iso3": "GBR",
+      "numCode": "826"
+    },
+    {
+      "id": 693,
+      "iso2": "US",
+      "shortName": "United States",
+      "longName": "United States of America",
+      "iso3": "USA",
+      "numCode": "840"
+    },
+    {
+      "id": 694,
+      "iso2": "UM",
+      "shortName": "United States Minor Outlying Islands",
+      "longName": "United States Minor Outlying Islands",
+      "iso3": "UMI",
+      "numCode": "581"
+    },
+    {
+      "id": 695,
+      "iso2": "UY",
+      "shortName": "Uruguay",
+      "longName": "Eastern Republic of Uruguay",
+      "iso3": "URY",
+      "numCode": "858"
+    },
+    {
+      "id": 696,
+      "iso2": "UZ",
+      "shortName": "Uzbekistan",
+      "longName": "Republic of Uzbekistan",
+      "iso3": "UZB",
+      "numCode": "860"
+    },
+    {
+      "id": 697,
+      "iso2": "VU",
+      "shortName": "Vanuatu",
+      "longName": "Republic of Vanuatu",
+      "iso3": "VUT",
+      "numCode": "548"
+    },
+    {
+      "id": 698,
+      "iso2": "VA",
+      "shortName": "Vatican City",
+      "longName": "State of the Vatican City",
+      "iso3": "VAT",
+      "numCode": "336"
+    },
+    {
+      "id": 699,
+      "iso2": "VE",
+      "shortName": "Venezuela",
+      "longName": "Bolivarian Republic of Venezuela",
+      "iso3": "VEN",
+      "numCode": "862"
+    }
   ],
   "profile": {
     "name": "typicode"

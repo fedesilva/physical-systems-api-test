@@ -1,12 +1,12 @@
 # API Server Test
 
-## Installation
+## Stack Installation
 
 ```
  ~ npm install
 ```
 
-## Run Server
+### Run Server
 
 ```
  ~ npm start
@@ -14,7 +14,7 @@
 
 Open `http://localhost:3000`
 
-## Resources
+### Resources
 
 ```
   http://localhost:3000/properties
@@ -26,5 +26,10 @@ Alternatively, you can deploy your own copy of the app using this button:
 
 [![Deploy to Heroku](https://www.herokucdn.com/deploy/button.png)](https://heroku.com/deploy)
 
-# Refs
+### Refs
  * Check json-server: https://github.com/typicode/json-server
+
+
+# Excercise 
+
+[Check this documentation](./docs/stories.txt)

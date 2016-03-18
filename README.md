@@ -32,4 +32,4 @@ Alternatively, you can deploy your own copy of the app using this button:
 
 # Excercise 
 
-[Check this documentation](./docs/stories.txt)
+[Check this documentation](./docs/stories.md)

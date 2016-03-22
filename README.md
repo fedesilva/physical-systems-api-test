@@ -30,6 +30,6 @@ Alternatively, you can deploy your own copy of the app using this button:
  * Check json-server: https://github.com/typicode/json-server
 
 
-# Excercise 
+# Exercise 
 
 [Check this documentation](./docs/stories.md)

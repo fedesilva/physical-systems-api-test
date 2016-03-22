@@ -1,55 +1,47 @@
 # Test - Stories
 
-Build a javascript application that handles properties locations.
+Build a javascript application that handles property locations.
 
 
 ## 1. Mapping
 
 ### 1.1 
-As Real Estate agent
-I need to visualize all the actual properties location in the system in a map.
-I need a map with all the properties in the system so that i can find the best place for a new one.
+As a member of a Real Estate team I need to see all properties on a map so that I can understand a market and find the best places for new properties.
 
 #### Done Criteria:
 
-    - Pin locations over google maps.
-    - Centered in Manhattan.
+    - Google map with one pin per property.
+    - Map centered in Manhattan.
 
 
 ### 1.2
-As a Real Estate agent,
-I want to click a property (in the map) and read all the information of that property,
-So that I see the basic information of a property in the context of it's geography.
+As a member of a Real Estate team I want to understand basic information about a property so that I can understand it in its geographic context.
 
 #### Done Criteria:
 
-    - Click on the pin -> open lightbox with: Name, Address, Market.
-    - Lightbox shoud have a Close button.
-    - If lightbox open -> you can´t interact with the map.
+    - Clicking on the pin opens a lightbox with: Name, Address, Market.
+    - Lightbox should have a close button.
+    - If lightbox is open, map interaction should be disabled.
 
 
 ## 2. Entity Management (CRUD - Grid & forms)
 
 ### 2.1 
-As a Real Estate Agent
-I need to add & edit properties in the system
-So that I can manage it later.
+As a member of a real Estate team I need to manage information about properties so that all members of my team can leverage property information in the system.
 
 #### Done Criteria
-    - Add & Edit Form
+    - Ability to add and edit properties
     - Validation
-        - Required: name, address, market, lat, long.
+        - Required: name, address, market, latitude, longitude.
     - Optional:
-        - select a pin on a map to get latitud and longitud 
+        - select a pin on the map to get its latitude and longitude coordinates
 
 ### 2.2 
-As a Real Estate Agent
-I need to visualize a list of all the properties in the system in a grid.
-So that I can easily find a property by its name and market.
+As a member of a Real Estate team I need to see a list of all properties so that I can quickly make comparisons between multiple properties.
 
 #### Done Criteria
-    - Grid showing all properties. Ordered by name desc.
-    - Click on name -> opens the edit form. After saving the change should be reflected on the grid.
+    - Grid showing all properties, ordered by name descending.
+    - Clicking on the name field opens the property edit form. After saving, the change should be reflected in the grid.
 
 
 # More Information:

@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html ng-app="propertiesApp">
+    <head>
+        <meta charset="utf-8">
+        <title>Properties App</title>
+        <script src="//maps.googleapis.com/maps/api/js?key=&sensor=false&extension=.js"></script>
+        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" media="screen" title="no title" charset="utf-8">
+        <link rel="stylesheet" href="/css/style.css" media="screen" title="no title" charset="utf-8">
+    </head>
+    <body ng-controller="PropCtrl">
+        <header>
+            <ul class="list-inline text-center">
+                <li><a href="#" ng-click="toggleGrid()">Properties Grid</a></li>
+                <li><a href="#" ng-click="toggleList()">Properties List</a></li>
+            </ul>
+        </header>
+        <section class="property-grid">
+            <a href="#" ng-click="toggleGrid()" style="font-size: 20px;text-align:right;padding-right:20px;display: block;">&times;</a>
+            <div class="grid">
+                <div class="grid-item" ng-repeat="prop in dirtyProperties | orderObjectBy:'name':true">
+                    <div class="">
+                        <a href="#" ng-click="openItem(prop.id)"><h4 class="panel-title text-center">{{ prop.name }}</h4></a>
+                        <p><strong>Address: </strong>{{prop.address1}}</p>
+                        <p><strong>Market: </strong>{{getMarketId(prop.marketId)}}</p>
+                        <p><strong>Latitude: </strong>{{prop.latitude}}</p>
+                        <p><strong>Longitude: </strong>{{prop.longitude}}</p>
+                    </div>
+                    <!-- <div id="grid{{$index}}" class="panel-collapse collapse">
+                        <div class="panel-body">
+                            <form class="form-horizontal">
+                                <div class="form-group" ng-repeat="(key, value) in prop">
+                                    <label for="{{key}}" class="col-sm-4 control-label">{{key}}</label>
+                                    <div class="col-sm-8">
+                                        <input type="text" class="form-control" ng-readonly="isEditable" ng-model="value" ng-keypress="updateItem(this, prop)" ng-blur="updateItem(this, prop)" name="{{key}}" value="{{value}}">
+                                    </div>
+                                </div>
+                            </form>
+                            <ul class="list-unstyled">
+                                <li class="row" ng-repeat="(key, value) in prop">
+                                    <strong for="{{key}}" class="col-sm-6">{{key}}</strong>
+                                    <p type="text" class="col-sm-6">{{value}}</p>
+                                </li>
+                            </ul>
+                        </div>
+                    </div> -->
+                </div>
+            </div>
+        </section>
+        <section class="map-view">
+            <div id="map"></div>
+        </section>
+        <section class="properties-list row">
+            <a href="#" ng-click="toggleList()" style="font-size: 20px;text-align:right;padding-right:20px;display: block;">&times;</a>
+            <div style="overflow:auto;">
+                <label class="col-sm-4" for="search">Search:</label><input class="col-sm-8" ng-model="searchText" id="search">
+                <div class="clearfix search"></div>
+                <div class="panel panel-default new-property">
+                    <div class="panel-heading">
+                        <a data-toggle="collapse" href="#addNew"><h4 class="panel-title">Add New Property</h4></a>
+                    </div>
+                    <div id="addNew" class="panel-collapse collapse">
+                        <div class="panel-body">
+                            <form class="form-horizontal">
+                                <div class="form-group">
+                                    <label for="name" class="col-sm-4 control-label">Name</label>
+                                    <div class="col-sm-8">
+                                        <input type="text" class="form-control" name="name" ng-model="newProperty.name" required>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="market" class="col-sm-4 control-label">Market</label>
+                                    <div class="col-sm-8">
+                                        <select class="form-control" name="marketId" ng-model="newProperty.marketId" required>
+                                            <option></option>
+                                            <option value="{{market.id}}" ng-repeat="market in markets">{{market.name}}</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="address1" class="col-sm-4 control-label">Address</label>
+                                    <div class="col-sm-8">
+                                        <input type="text" class="form-control" name="address1" ng-model="newProperty.address1" required>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="latitude" class="col-sm-4 control-label">Latitude</label>
+                                    <div class="col-sm-8">
+                                        <input type="text" class="form-control" name="latitude" ng-model="newProperty.latitude" required>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="longitude" class="col-sm-4 control-label">Longitude</label>
+                                    <div class="col-sm-8">
+                                        <input type="text" class="form-control" name="longitude" ng-model="newProperty.longitude" required>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="desks" class="col-sm-4 control-label">Desks</label>
+                                    <div class="col-sm-8">
+                                        <input type="text" class="form-control" name="desks" ng-model="newProperty.desks">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="Sf" class="col-sm-4 control-label">Sf</label>
+                                    <div class="col-sm-8">
+                                        <input type="text" class="form-control" name="Sf" ng-model="newProperty.Sf">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="city" class="col-sm-4 control-label">City</label>
+                                    <div class="col-sm-8">
+                                        <input type="text" class="form-control" name="city" ng-model="newProperty.city">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="state" class="col-sm-4 control-label">State</label>
+                                    <div class="col-sm-8">
+                                        <input type="text" class="form-control" name="state" ng-model="newProperty.state">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="postalCode" class="col-sm-4 control-label">PostalCode</label>
+                                    <div class="col-sm-8">
+                                        <input type="text" class="form-control" name="postalCode" ng-model="newProperty.postalCode">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="countryId" class="col-sm-4 control-label">CountryId</label>
+                                    <div class="col-sm-8">
+                                        <input type="text" class="form-control" name="countryId" ng-model="newProperty.countryId">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="regionalCategory" class="col-sm-4 control-label">RegionalCategory</label>
+                                    <div class="col-sm-8">
+                                        <input type="text" class="form-control" name="regionalCategory" ng-model="newProperty.regionalCategory">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="marketId" class="col-sm-4 control-label">MarketId</label>
+                                    <div class="col-sm-8">
+                                        <input type="text" class="form-control" name="marketId" ng-model="newProperty.marketId">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="submarketId" class="col-sm-4 control-label">SubmarketId</label>
+                                    <div class="col-sm-8">
+                                        <input type="text" class="form-control" name="submarketId" ng-model="newProperty.submarketId">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="locationId" class="col-sm-4 control-label">LocationId</label>
+                                    <div class="col-sm-8">
+                                        <input type="text" class="form-control" name="locationId" ng-model="newProperty.locationId">
+                                    </div>
+                                </div>
+                                <button type="submit" id="submit" ng-click="createProperty(newProperty)" class="btn btn-primary">Add Property</button>
+                            </form>
+                        </div>
+                    </div>
+              </div>
+            </div>
+            <div class="panel-group">
+                <div class="panel panel-default" ng-repeat="prop in cleanProperties | filter:searchText">
+                    <div class="panel-heading">
+                        <a data-toggle="collapse" href="#collapse{{prop.id}}" ng-click=""><h4 class="panel-title">{{ prop.name }}</h4></a>
+                    </div>
+                    <div id="collapse{{prop.id}}" class="panel-collapse collapse">
+                        <div class="panel-body">
+                            <form class="form-horizontal">
+                                <div class="form-group" ng-repeat="(key, value) in prop">
+                                    <label for="{{key}}" class="col-sm-4 control-label">{{key}}</label>
+                                    <div class="col-sm-8">
+                                        <input type="text" class="form-control" ng-readonly="isEditable" ng-model="value" ng-keypress="updateItem(this, prop)" ng-blur="updateItem(this, prop)" name="{{key}}" value="{{value}}">
+                                    </div>
+                                </div>
+                            </form>
+                            <button ng-click="deleteProperty(prop)" class="btn btn-primary">Delete Property</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <div class="modal fade" id="propLightBox" tabindex="-1" role="dialog" data-backdrop="static">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title"></h4>
+              </div>
+              <div class="modal-body">
+                  <div class="row">
+                      <strong class="col-sm-4">Address</strong><p class="prop-address col-sm-8"></p>
+                      <strong class="col-sm-4">Market</strong><p class="prop-market col-sm-8"></p>
+                  </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <script src="/js/angular.min.js"></script>
+        <script src="https://code.jquery.com/jquery-2.2.2.min.js" integrity="sha256-36cp2Co+/62rEAAYHLmRCPIych47CvdM+uTBJwSzWjI=" crossorigin="anonymous"></script>
+        <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+        <script src="/js/app.js"></script>
+    </body>
+</html>

@@ -1,0 +1,135 @@
+body, html {
+    margin: 0; padding: 0;
+}
+header {
+    background: #45b0f9;
+    color: #fff;
+}
+header ul {
+    background: #45b0f9;
+    margin: 0;
+    padding: 5px 0;
+}
+header a {
+    color: #fff;
+}
+header a:hover, header a:active, header a:visited {
+    color: #fff;
+}
+a {
+    color: #45b0f9;
+}
+a:hover, a:active, a:visited {
+    color: #45b0f9;
+}
+#map {
+    height:calc(100vh - 30px);
+    width:100vw;
+}
+.modal-dialog {
+    top: 30vh;
+}
+.search {
+    margin-bottom: 10px;
+}
+.panel-heading {
+    margin: 0;
+    padding: 20px;
+}
+.properties-list {
+    z-index: 10;
+    width: 40vw;
+    overflow-y: scroll;
+    background-color: #fff;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: -40vw;
+    left: auto;
+    -webkit-transition: all 1s; /* Safari */
+    transition: all 1s;
+}
+.properties-list.in {
+    right: 15px;
+    -webkit-transition: all 1s; /* Safari */
+    transition: all 1s;
+}
+.properties-list .panel, .properties-list .panel-heading {
+    background: #45b0f9;
+    border: none;
+    border-radius: 0;
+    color: #fff;
+}
+.properties-list .panel-heading a {
+    color: #fff;
+}
+.properties-list .panel-body {
+    background-color: #fff;
+    color: #000;
+}
+.properties-list .panel-body input {
+    border: 1px solid transparent;
+    background: transparent;
+    box-shadow: none;
+    margin-bottom: 0;
+}
+.properties-list .panel-body input:focus, .properties-list .panel-body input:hover {
+    border: 1px solid #45b0f9;
+    box-shadow: 1px 1px 3px rbga(0,0,0,.5);
+}
+.properties-list .form-group {
+    margin-bottom: 0;
+}
+.properties-list .panel.new-property input, .properties-list .panel.new-property select {
+    margin-bottom: 8px;
+    border: 1px solid #45b0f9;
+    box-shadow: 1px 1px 3px rbga(0,0,0,.5);
+}
+.property-grid {
+    z-index: 10;
+    width: 100vw;
+    overflow-y: scroll;
+    background-color: rgba(255,255,255,.85);
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: -100vw;
+    -webkit-transition: all 1s; /* Safari */
+    transition: all 1s;
+}
+.property-grid.in {
+    left: 0px;
+    -webkit-transition: all 1s; /* Safari */
+    transition: all 1s;
+}
+.grid {
+    display: flex;
+    flex-wrap: wrap;
+}
+.grid-item {
+    display: flex;
+    flex-direction: column;
+    flex-basis: 33%;
+    min-height: 100px;
+    border: 1px solid black;
+    justify-content: center;
+    align-content: center;
+    padding: 20px;
+}
+.grid-item h4 {
+    font-size: 26px;
+    margin-bottom: 10px;
+}
+.grid-item .form-group {
+    margin-bottom: 0;
+}
+
+@media (max-width: 768px) {
+    .properties-list {
+        width: 100vw;
+        right: -100vw;
+    }
+    .grid-item {
+        flex-basis: 50%;
+    }
+}
